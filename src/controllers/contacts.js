@@ -1,4 +1,4 @@
-import contactService from '../services/contactServices';
+import contactsService from '../services/contactServices';
 import Util from '../helpers/utils';
 
 const util = new Util();
@@ -12,7 +12,7 @@ export default class Contacts {
         subject: req.body.subject,
         message: req.body.message,
       };
-      const newContact = await contactService.create(contact);
+      const newContact = await contactsService.create(contact);
       util.setSuccess(201, 'You have successfully sent a Message', newContact);
       util.send(res);
     } catch (error) {

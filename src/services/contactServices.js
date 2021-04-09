@@ -1,20 +1,23 @@
-import models from '../models/index';
+import { Op } from 'sequelize';
+import models from '../models';
 
-const { Contacts } = models.Contact;
+const {
+  Contact
+} = models;
 /**
  * @exports
- * @class ContactsService
+ * @class AccomodationsService
  */
 class ContactsService {
   /**
-     * create new Contact
-     * @static createContacts
+     * create new user
+     * @static createAccomodations
      * @param {object} newContacts
      * @memberof ContactsService
      * @returns {object} data
      */
   static create(newContacts) {
-    return Contacts.create(newContacts);
+    return Contact.create(newContacts);
   }
 }
 export default ContactsService;
