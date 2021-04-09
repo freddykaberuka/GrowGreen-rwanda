@@ -43,4 +43,16 @@ export default class Contacts {
       util.send(res);
     }
   }
+
+  static async deleteMessage(req, res) {
+    try {
+      const { id } = req.params;
+      const messageDeletion = await contactsService.deleteById(id);
+      util.setSuccess(200, 'deleted Successful', messageDeletion);
+      util.send(res);
+    } catch (error) {
+      util.setError(500, error.message);
+      util.send(res);
+    }
+  }
 }

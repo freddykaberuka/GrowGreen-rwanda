@@ -31,5 +31,9 @@ class ContactsService {
       where: { id: modelId },
     });
   }
+
+  static deleteById(contactId) {
+    return Contact.destroy({ where: { id: contactId } });
+  }
 }
 export default ContactsService;

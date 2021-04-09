@@ -7,4 +7,5 @@ const router = express();
 router.post('/create', contactValidator.createContact, contactController.createContacts);
 router.get('/messages', contactController.getMessages);
 router.get('/message/:id', contactController.getMessageById);
+router.delete('/message/:id', contactController.deleteMessage);
 export default router;
