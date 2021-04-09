@@ -25,5 +25,11 @@ class ContactsService {
       attributes: ['names', 'email', 'subject', 'message'],
     },);
   }
+
+  static findById(modelId) {
+    return Contact.findOne({
+      where: { id: modelId },
+    });
+  }
 }
 export default ContactsService;

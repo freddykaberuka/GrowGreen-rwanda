@@ -31,4 +31,16 @@ export default class Contacts {
       util.send(res);
     }
   }
+
+  static async getMessageById(req, res) {
+    try {
+      const { id } = req.params;
+      const message = await contactsService.findById(id);
+      util.setSuccess(200, 'message', message);
+      util.send(res);
+    } catch (error) {
+      util.setError(500, error.message);
+      util.send(res);
+    }
+  }
 }
