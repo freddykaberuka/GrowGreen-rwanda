@@ -20,4 +20,15 @@ export default class Contacts {
       util.send(res);
     }
   }
+
+  static async getMessages(req, res) {
+    try {
+      const messages = await contactsService.getMessages();
+      util.setSuccess(200, 'All Messages', messages);
+      util.send(res);
+    } catch (error) {
+      util.setError(500, error.message);
+      util.send(res);
+    }
+  }
 }

@@ -19,5 +19,11 @@ class ContactsService {
   static create(newContacts) {
     return Contact.create(newContacts);
   }
+
+  static getMessages() {
+    return Contact.findAll({
+      attributes: ['names', 'email', 'subject', 'message'],
+    },);
+  }
 }
 export default ContactsService;
