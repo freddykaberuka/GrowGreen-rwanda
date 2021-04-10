@@ -21,4 +21,15 @@ export default class Leaders {
       util.send(res);
     }
   }
+
+  static async getLeaders(req, res) {
+    try {
+      const leaders = await leadersService.getAllLeaders();
+      util.setSuccess(200, 'List of Leaders', leaders);
+      util.send(res);
+    } catch (error) {
+      util.setError(500, error.message);
+      util.send(res);
+    }
+  }
 }
