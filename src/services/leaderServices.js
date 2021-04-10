@@ -35,5 +35,11 @@ class LeadersService {
   static deleteById(leaderId) {
     return Leadership.destroy({ where: { id: leaderId } });
   }
+
+  static updateAtt(set, prop) {
+    return Leadership.update(set, {
+      where: prop,
+    });
+  }
 }
 export default LeadersService;

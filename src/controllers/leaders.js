@@ -59,4 +59,26 @@ export default class Leaders {
       util.send(res);
     }
   }
+
+  // update a leader info
+
+  static async updateLeader(req, res) {
+    try {
+      const { id } = req.params;
+      const updated = await leadersService.updateAtt({
+        names: req.body.names,
+        title: req.body.title,
+        facebookAcc: req.body.facebookAcc,
+        twitterAcc: req.body.twitterAcc,
+        moreOn: req.body.moreOn,
+      }, { id });
+      if (updated) {
+        util.setSuccess(200, 'You have successfuly updated a Leader Info');
+        util.send(res);
+      }
+    } catch (error) {
+      util.setError(500, error.message);
+      util.send(res);
+    }
+  }
 }
