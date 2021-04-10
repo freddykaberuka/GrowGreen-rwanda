@@ -32,4 +32,17 @@ export default class Leaders {
       util.send(res);
     }
   }
+  // get single leader
+
+  static async getLeaderById(req, res) {
+    try {
+      const { id } = req.params;
+      const message = await leadersService.findById(id);
+      util.setSuccess(200, 'more info on Leader', message);
+      util.send(res);
+    } catch (error) {
+      util.setError(500, error.message);
+      util.send(res);
+    }
+  }
 }
