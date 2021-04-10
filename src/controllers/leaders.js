@@ -45,4 +45,18 @@ export default class Leaders {
       util.send(res);
     }
   }
+
+  // delete a leader in the database
+
+  static async deleteLeader(req, res) {
+    try {
+      const { id } = req.params;
+      const messageDeletion = await leadersService.deleteById(id);
+      util.setSuccess(200, 'a leader is deleted Successful', messageDeletion);
+      util.send(res);
+    } catch (error) {
+      util.setError(500, error.message);
+      util.send(res);
+    }
+  }
 }
